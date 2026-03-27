@@ -1,5 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:yod/yod.dart';
+import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
+
+import 'injection.dart';
 
 class LoginManager extends YodManager {
   var counter = 0.yor;
@@ -9,7 +14,8 @@ class LoginManager extends YodManager {
   }
 }
 
-void main() {
+Future<void> main() async {
+  await injection();
   runApp(const MyApp());
 }
 
@@ -18,12 +24,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    final themeManager = Yod.resolve<ThemeManager>();
+    return YodBuilder(
+      builder: () {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          theme: YodThemeApp.lightTheme(),
+          darkTheme: YodThemeApp.darkTheme(),
+          themeMode: themeManager.isDarkMode.value
+              ? ThemeMode.dark
+              : ThemeMode.light,
+          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        );
+      },
     );
   }
 }
@@ -42,38 +55,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final themeManager = Yod.resolve<ThemeManager>();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: context.yodTheme.primary,
         title: Text(widget.title),
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             YodBuilder(
               builder: () {
-                return Text(
-                  '${manager.counter.value}',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
+                return Text('${manager.counter.value}');
               },
+            ),
+
+            ElevatedButton(
+              onPressed: () {
+                themeManager.isDarkMode.value = !themeManager.isDarkMode.value;
+              },
+              child: Text('Change Theme'),
             ),
           ],
         ),
@@ -82,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: manager.incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
