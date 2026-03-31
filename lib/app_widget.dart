@@ -30,8 +30,8 @@ class _AppWidgetState extends State<AppWidget> {
         return MaterialApp(
           scrollBehavior: CustomScrollBehavior(),
           // title: 'Flutter Demo',
-          theme: YodThemeApp.lightTheme(),
-          darkTheme: YodThemeApp.darkTheme(),
+          theme: RamThemeApp.lightTheme(),
+          darkTheme: RamThemeApp.darkTheme(),
           themeMode: themeManager.isDarkMode.value
               ? ThemeMode.dark
               : ThemeMode.light,
@@ -54,55 +54,6 @@ class _AppWidgetState extends State<AppWidget> {
           navigatorObservers: [YodNavigator()],
         );
       },
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  final manager = Yod.register(LoginManager());
-
-  @override
-  Widget build(BuildContext context) {
-    final themeManager = Yod.resolve<ThemeManager>();
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: context.yodTheme.primary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            YodBuilder(
-              builder: () {
-                return Text('${manager.counter.value}');
-              },
-            ),
-
-            ElevatedButton(
-              onPressed: () {
-                themeManager.isDarkMode.value = !themeManager.isDarkMode.value;
-              },
-              child: Text('Change Theme'),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: manager.incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
   }
 }

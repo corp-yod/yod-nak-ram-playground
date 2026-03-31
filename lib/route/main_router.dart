@@ -13,7 +13,7 @@ class YodRoutor extends YodRouterGenerator {
             return const HomeScreen();
           },
         );
-      case 'home':
+      case '/home':
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (context, animation, secondaryAnimation) {
@@ -26,6 +26,6 @@ class YodRoutor extends YodRouterGenerator {
 
   @override
   Set<String> routes() {
-    return {'/', 'home'};
+    return {'/', '/home'};
   }
 }
