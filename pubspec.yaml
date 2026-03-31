@@ -20,9 +20,10 @@ dependencies:
       ref: master
 
   yod_nak_ram_ui_kit:
-    git:
-      url: https://github.com/Raphdevv/yod-nak-ram-ui-kit.git
-      ref: master
+    path: ../yod-nak-ram-ui-kit
+    # git:
+    #   url: https://github.com/Raphdevv/yod-nak-ram-ui-kit.git
+    #   ref: master
 
   yod_navigator:
     path: ../yod-navigator
