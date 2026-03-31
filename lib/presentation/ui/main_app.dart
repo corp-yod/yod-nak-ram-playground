@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yod_nak_ram_app/presentation/ui/menu/fake_store.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/menu_item.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/travel_to_gether.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
@@ -11,7 +12,7 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
-  List<MenuItem> listMenu = [TravelToGether()];
+  List<MenuItem> listMenu = [TravelToGether(), FakeStore()];
 
   @override
   void initState() {
