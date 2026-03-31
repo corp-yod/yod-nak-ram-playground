@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yod_nak_ram_app/presentation/ui/main_app.dart';
 import 'package:yod_navigator/yod_navigator.dart';
+import 'package:yod_presentation_fake_store/yod_presentation_fake_store.dart';
 
 class YodRoutor extends YodRouterGenerator {
   @override
@@ -20,12 +21,19 @@ class YodRoutor extends YodRouterGenerator {
             return const MainApp();
           },
         );
+      case '/fake-store':
+        return PageRouteBuilder(
+          settings: settings,
+          pageBuilder: (context, animation, secondaryAnimation) {
+            return MainAppFakeStore();
+          },
+        );
     }
     return null;
   }
 
   @override
   Set<String> routes() {
-    return {'/', '/home'};
+    return {'/', '/home', '/fake-store'};
   }
 }
