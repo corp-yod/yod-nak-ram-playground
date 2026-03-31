@@ -16,20 +16,25 @@ dependencies:
 
   yod:
     git:
-      url: https://github.com/corp-yod/yod
+      url: https://github.com/corp-yod/yod.git
       ref: master
 
   yod_nak_ram_ui_kit:
     path: ../yod-nak-ram-ui-kit
     # git:
-    #   url: https://github.com/Raphdevv/yod-nak-ram-ui-kit.git
+    #   url: https://github.com/corp-yod/yod-nak-ram-ui-kit.git
     #   ref: master
+  
+  yod_presentation_fake_store:
+    path: ../yod-presentation-fake-store
 
   yod_navigator:
-    path: ../yod-navigator
+    git:
+      url: https://github.com/corp-yod/yod-navigator.git
+      ref: main
 
-  yod_presentation_travel_to_gether:
-    path: ../yod_presentation_travel_to_gether
+  # yod_presentation_travel_to_gether:
+  #   path: ../yod_presentation_travel_to_gether
 
 dev_dependencies:
   flutter_test:
