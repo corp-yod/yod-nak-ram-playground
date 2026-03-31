@@ -1,18 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:yod/yod.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 
 import 'injection.dart';
-
-class LoginManager extends YodManager {
-  var counter = 0.yor;
-
-  void incrementCounter() {
-    counter.value++;
-  }
-}
 
 Future<void> main() async {
   await injection();
@@ -29,8 +19,9 @@ class MyApp extends StatelessWidget {
       builder: () {
         return MaterialApp(
           title: 'Flutter Demo',
-          theme: YodThemeApp.lightTheme(),
-          darkTheme: YodThemeApp.darkTheme(),
+          theme: RamThemeApp.lightTheme(),
+          darkTheme: RamThemeApp.darkTheme(),
+          debugShowCheckedModeBanner: false,
           themeMode: themeManager.isDarkMode.value
               ? ThemeMode.dark
               : ThemeMode.light,
@@ -50,42 +41,43 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  final manager = Yod.register(LoginManager());
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TabController(length: 3, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final themeManager = Yod.resolve<ThemeManager>();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: context.yodTheme.primary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            YodBuilder(
-              builder: () {
-                return Text('${manager.counter.value}');
-              },
-            ),
-
-            ElevatedButton(
-              onPressed: () {
-                themeManager.isDarkMode.value = !themeManager.isDarkMode.value;
-              },
-              child: Text('Change Theme'),
-            ),
-          ],
+        backgroundColor: context.ramTheme.primary,
+        title: RamTitleText(
+          text: widget.title,
+          colorText: context.ramTheme.onPrimary,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: manager.incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      body: RamGridview(
+        itemCount: 16,
+        itemBuilder: (context, index) {
+          return RamCardNetworkImage(
+            imageUrl: mockImageUrl,
+            title: 'Title $index',
+            description: 'Description $index',
+          );
+        },
       ),
+      bottomNavigationBar: RamBottomBarNavigation(controller: controller),
     );
   }
 }
