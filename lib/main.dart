@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.ramTheme.surface,
       appBar: AppBar(
         backgroundColor: context.ramTheme.primary,
         title: RamTitleText(
@@ -77,6 +78,7 @@ class _MyHomePageState extends State<MyHomePage>
           );
         },
       ),
+      extendBody: true,
       bottomNavigationBar: RamBottomBarNavigation(controller: controller),
     );
   }
