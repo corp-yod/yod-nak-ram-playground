@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yod_nak_ram_app/presentation/ui/home.dart';
+import 'package:yod_nak_ram_app/presentation/ui/main_app.dart';
 import 'package:yod_navigator/yod_navigator.dart';
 
 class YodRoutor extends YodRouterGenerator {
@@ -10,14 +10,14 @@ class YodRoutor extends YodRouterGenerator {
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const HomeScreen();
+            return const MainApp();
           },
         );
       case '/home':
         return PageRouteBuilder(
           settings: settings,
           pageBuilder: (context, animation, secondaryAnimation) {
-            return const HomeScreen();
+            return const MainApp();
           },
         );
     }
