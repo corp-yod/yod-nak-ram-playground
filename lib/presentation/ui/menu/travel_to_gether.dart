@@ -14,7 +14,7 @@ class TravelToGether extends MenuItem {
       height: 20,
       iconColor: Colors.orange,
       onTapMenu: () {
-        YodNavigator().pushNamedAndRemoveAll(context, '/travelHomeScreen');
+        YodNavigator().pushNamedAndRemoveAll(context, '/travelMainApp');
       },
     );
   }
