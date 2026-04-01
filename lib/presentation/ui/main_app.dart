@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:yod_nak_ram_app/app_widget.dart';
+import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/fake_store.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/menu_item.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/seek_golden.dart';
@@ -18,6 +20,16 @@ class _MainAppState extends State<MainApp> {
   @override
   void initState() {
     super.initState();
+    print('#->>> MainApp initState ${navigatorKey.currentWidget}');
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      AssistiveTouchService().init(navigatorKey);
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override

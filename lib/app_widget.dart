@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:yod/yod.dart';
 import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
-import 'package:yod_nak_ram_app/presentation/splash_screen.dart';
 import 'package:yod_nak_ram_app/route.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
-class LoginManager extends YodManager {
-  var counter = 0.yor;
-
-  void incrementCounter() {
-    counter.value++;
-  }
-}
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -24,21 +15,10 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
-  final AssistiveTouchService _assistiveTouchService = AssistiveTouchService();
-
-  @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _assistiveTouchService.init(navigatorKey);
-    });
-  }
-
   @override
   void dispose() {
-    _assistiveTouchService.dispose();
     super.dispose();
+    AssistiveTouchService().dispose();
   }
 
   @override
@@ -64,6 +44,7 @@ class _AppWidgetState extends State<AppWidget> {
             return child ?? const SizedBox.shrink();
           },
           onGenerateRoute: (settings) {
+            print('#->>> AppWidget onGenerateRoute ${settings.name}');
             final mfafRoute = MainRoute().generateRoute(settings);
             if (mfafRoute != null) return mfafRoute;
 

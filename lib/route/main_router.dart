@@ -10,13 +10,13 @@ class YodRoutor extends YodRouterGenerator {
     switch (settings.name) {
       case '/splash':
         return MaterialPageRoute(builder: (context) => const SplashScreen());
-      case '/':
-        return PageRouteBuilder(
-          settings: settings,
-          pageBuilder: (context, animation, secondaryAnimation) {
-            return const MainApp();
-          },
-        );
+      // case '/':
+      //   return PageRouteBuilder(
+      //     settings: settings,
+      //     pageBuilder: (context, animation, secondaryAnimation) {
+      //       return const MainApp();
+      //     },
+      //   );
       case '/main':
         return PageRouteBuilder(
           settings: settings,
@@ -37,6 +37,10 @@ class YodRoutor extends YodRouterGenerator {
 
   @override
   Set<String> routes() {
-    return {'/splash', '/', '/main', '/fake-store'};
+    return {
+      '/splash',
+      // '/',
+      '/main', '/fake-store',
+    };
   }
 }

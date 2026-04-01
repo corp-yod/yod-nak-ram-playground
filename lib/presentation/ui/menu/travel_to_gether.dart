@@ -12,9 +12,9 @@ class TravelToGether extends MenuItem {
       subtitle: 'Explore the world together',
       width: 20,
       height: 20,
-      // iconColor: Colors.orange,
+      iconColor: Colors.orange,
       onTapMenu: () {
-        YodNavigator().pushNamed(context, '/travelHomeScreen');
+        YodNavigator().pushNamedAndRemoveAll(context, '/travelHomeScreen');
       },
     );
   }
