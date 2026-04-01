@@ -18,7 +18,7 @@ dependencies:
     # path: ../yod
     git:
       url: https://github.com/corp-yod/yod.git
-      ref: master
+      ref: develop
 
   yod_nak_ram_ui_kit:
     git:
@@ -29,7 +29,7 @@ dependencies:
     # path: ../yod-presentation-fake-store
     git:
       url: https://github.com/corp-yod/yod-presentation-fake-store.git
-      ref: main
+      ref: develop
 
   yod_navigator:
     git:
@@ -67,7 +67,7 @@ dependency_overrides:
     # path: ../yod-presentation-fake-store
     git:
       url: https://github.com/corp-yod/yod-presentation-fake-store.git
-      ref: main
+      ref: develop
 
   yod_presentation_travel_to_gether:
     git:
@@ -82,8 +82,8 @@ dependency_overrides:
   # yod_nak_ram_ui_kit:
   #   path: ../yod-nak-ram-ui-kit
 
-  # # yod_navigator:
-  # #   path: ../yod-navigator
+  # yod_navigator:
+  #   path: ../yod-navigator
 
   # yod_presentation_travel_to_gether:
   #   path: ../yod-presentation-travel-to-gether
