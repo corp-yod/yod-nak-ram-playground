@@ -56,5 +56,18 @@ dev_dependencies:
 
   flutter_lints: ^5.0.0
 
+dependency_overrides:
+  yod_nak_ram_ui_kit:
+    # path: ../yod-nak-ram-ui-kit
+    git:
+      url: https://github.com/corp-yod/yod-nak-ram-ui-kit.git
+      ref: master
+
+  yod_presentation_fake_store:
+    # path: ../yod-presentation-fake-store
+    git:
+      url: https://github.com/corp-yod/yod-presentation-fake-store.git
+      ref: main
+
 flutter:
   uses-material-design: true
