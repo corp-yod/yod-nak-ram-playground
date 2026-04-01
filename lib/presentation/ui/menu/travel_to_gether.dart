@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/menu_item.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
+import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
 
 class TravelToGether extends MenuItem {
   @override
@@ -13,21 +14,7 @@ class TravelToGether extends MenuItem {
       height: 20,
       // iconColor: Colors.orange,
       onTapMenu: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Scaffold(
-              appBar: AppBar(
-                backgroundColor: context.ramTheme.primary,
-                title: RamTitleText(
-                  text: 'Travel To Gether',
-                  colorText: context.ramTheme.onPrimary,
-                ),
-              ),
-              body: Center(child: RamTitleText(text: 'Travel To Gether')),
-            ),
-          ),
-        );
+        YodNavigator().pushNamed(context, '/travel_to_gether');
       },
     );
   }
