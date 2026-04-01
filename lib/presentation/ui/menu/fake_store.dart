@@ -14,7 +14,8 @@ class FakeStore extends MenuItem {
       height: 20,
       // iconColor: Colors.orange,
       onTapMenu: () {
-        YodNavigator().pushNamed(context, '/fake-store');
+        Navigator.pushNamed(context, '/fake-store');
+        // YodNavigator().pushNamed(context, '/fake-store');
       },
     );
   }
