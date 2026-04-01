@@ -28,6 +28,7 @@ class _MainAppState extends State<MainApp> {
           text: 'Home',
           colorText: context.ramTheme.onPrimary,
         ),
+        leading: const Icon(Icons.home),
       ),
       body: Padding(
         padding: const EdgeInsets.all(kPadding7),

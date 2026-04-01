@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:yod/yod.dart';
+import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
 import 'package:yod_nak_ram_app/route.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
 
-final navigatorKey = GlobalKey<NavigatorState>();
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 class LoginManager extends YodManager {
   var counter = 0.yor;
@@ -22,6 +23,23 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
+  final AssistiveTouchService _assistiveTouchService = AssistiveTouchService();
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _assistiveTouchService.init(navigatorKey);
+    });
+  }
+
+  @override
+  void dispose() {
+    _assistiveTouchService.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final themeManager = Yod.resolve<ThemeManager>();
