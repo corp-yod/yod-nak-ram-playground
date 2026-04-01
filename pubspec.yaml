@@ -11,10 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
 
   cupertino_icons: ^1.0.8
-  
 
   yod:
     git:
@@ -42,16 +40,6 @@ dependencies:
       url: https://github.com/corp-yod/yod-presentation-travel-to-gether.git
       ref: develop
 
-# dependency_overrides:
-#   yod_nak_ram_ui_kit:
-#     path: ../yod-nak-ram-ui-kit
-
-#   yod_navigator:
-#     path: ../yod-navigator
-
-#   yod_presentation_travel_to_gether:
-#     path: ../yod-presentation-travel-to-gether
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -66,7 +54,6 @@ flutter_launcher_icons:
   adaptive_icon_background: "#101418"
   adaptive_icon_foreground: "assets/icons/app_icon.png"
   remove_alpha_ios: true
-
 
 dependency_overrides:
   yod_nak_ram_ui_kit:
@@ -90,6 +77,15 @@ dependency_overrides:
     git:
       url: https://github.com/corp-yod/yod-navigator.git
       ref: main
+
+  # yod_nak_ram_ui_kit:
+  #   path: ../yod-nak-ram-ui-kit
+
+  # # yod_navigator:
+  # #   path: ../yod-navigator
+
+  # yod_presentation_travel_to_gether:
+  #   path: ../yod-presentation-travel-to-gether
 
 flutter:
   uses-material-design: true
