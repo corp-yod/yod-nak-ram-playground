@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yod_nak_ram_app/presentation/splash_screen.dart';
 import 'package:yod_nak_ram_app/presentation/ui/main_app.dart';
 import 'package:yod_navigator/yod_navigator.dart';
 import 'package:yod_presentation_fake_store/yod_presentation_fake_store.dart';
@@ -7,6 +8,8 @@ class YodRoutor extends YodRouterGenerator {
   @override
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
+      case '/splash':
+        return MaterialPageRoute(builder: (context) => const SplashScreen());
       case '/':
         return PageRouteBuilder(
           settings: settings,
@@ -34,6 +37,6 @@ class YodRoutor extends YodRouterGenerator {
 
   @override
   Set<String> routes() {
-    return {'/', '/main', '/fake-store'};
+    return {'/splash', '/', '/main', '/fake-store'};
   }
 }

@@ -17,6 +17,7 @@ dependencies:
   
 
   yod:
+    # path: ../yod
     git:
       url: https://github.com/corp-yod/yod.git
       ref: master
@@ -94,4 +95,4 @@ dependency_overrides:
 flutter:
   uses-material-design: true
   assets:
-    - assets/icons/app_icon.png
+    - assets/icons/
