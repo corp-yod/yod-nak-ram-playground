@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yod/yod.dart';
 import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
+import 'package:yod_nak_ram_app/presentation/splash_screen.dart';
 import 'package:yod_nak_ram_app/route.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
@@ -56,13 +57,12 @@ class _AppWidgetState extends State<AppWidget> {
           debugShowCheckedModeBanner: false,
 
           // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-          initialRoute: '/',
+          initialRoute: '/splash',
           navigatorKey: navigatorKey,
 
           builder: (context, child) {
             return child ?? const SizedBox.shrink();
           },
-
           onGenerateRoute: (settings) {
             final mfafRoute = MainRoute().generateRoute(settings);
             if (mfafRoute != null) return mfafRoute;
