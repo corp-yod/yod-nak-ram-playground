@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/menu_item.dart';
+import 'package:yod_nak_ram_app/route/main_route_name.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
 
@@ -14,7 +15,7 @@ class TravelToGether extends MenuItem {
       height: 20,
       iconColor: Colors.orange,
       onTapMenu: () {
-        YodNavigator().pushNamedAndRemoveAll(context, '/travelMainApp');
+        YodNavigator().pushNamed(context, RouteNameYod.travelLoginScreen);
       },
     );
   }

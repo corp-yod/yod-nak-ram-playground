@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+import 'package:yod_nak_ram_app/presentation/splash_screen.dart';
+import 'package:yod_nak_ram_app/presentation/ui/main_app.dart';
+import 'package:yod_nak_ram_app/route/main_route_name.dart';
+import 'package:yod_navigator/yod_navigator.dart';
+import 'package:yod_presentation_fake_store/yod_presentation_fake_store.dart';
+import 'package:yod_presentation_travel_to_gether/presentation/login/login_screen.dart';
+
+class YodRoutor extends YodRouterGenerator {
+  @override
+  void init() {}
+
+  @override
+  Set<String> routes() {
+    return {
+      RouteNameYod.splash,
+      RouteNameYod.main,
+      RouteNameYod.fakeStore,
+      RouteNameYod.travelLoginScreen,
+    };
+  }
+
+  @override
+  Route? onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case RouteNameYod.splash:
+        return MaterialPageRoute(builder: (context) => const SplashScreen());
+      // case '/':
+      //   return PageRouteBuilder(
+      //     settings: settings,
+      //     pageBuilder: (context, animation, secondaryAnimation) {
+      //       return const MainApp();
+      //     },
+      //   );
+      case RouteNameYod.main:
+        return _buildPageRoute(settings, const MainApp());
+      case RouteNameYod.fakeStore:
+        return _buildPageRoute(settings, MainAppFakeStore());
+      case RouteNameYod.travelLoginScreen:
+        return _buildPageRoute(settings, const LoginScreen());
+    }
+    return null;
+  }
+
+  PageRoute _buildPageRoute(RouteSettings settings, Widget page) {
+    return PageRouteBuilder(
+      settings: settings,
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      // แก้เอาตามใจเด้อ บ่รู้จะเอาแบบไหน
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return ScaleTransition(
+          scale: animation,
+          alignment: Alignment.center,
+          child: child,
+        );
+      },
+    );
+  }
+}
