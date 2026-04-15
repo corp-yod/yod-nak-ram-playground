@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yod/yod.dart';
 import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
+import 'package:yod_nak_ram_app/injection.dart';
 import 'package:yod_nak_ram_app/route.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
@@ -73,5 +74,10 @@ class CustomScrollBehavior extends MaterialScrollBehavior {
 }
 
 Future<void> initialApp() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await injection();
   MainRoute().init();
+  await YodData().init();
+  await YodNetworkHttp().init(HttpInitialValue(channel: 'yod_nak_ram_app_v1'));
 }

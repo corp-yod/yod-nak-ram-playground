@@ -13,9 +13,10 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
 
   yod:
-    # path: ../yod
     git:
       url: https://github.com/corp-yod/yod.git
       ref: develop
@@ -26,7 +27,6 @@ dependencies:
       ref: develop
 
   yod_presentation_fake_store:
-    # path: ../yod-presentation-fake-store
     git:
       url: https://github.com/corp-yod/yod-presentation-fake-store.git
       ref: develop
@@ -41,12 +41,27 @@ dependencies:
       url: https://github.com/corp-yod/yod-presentation-travel-to-gether.git
       ref: develop
 
+
+dependency_overrides:
+  # yod_nak_ram_ui_kit:
+  #   path: ../yod-nak-ram-ui-kit
+
+  # yod_navigator:
+  #   path: ../yod-navigator
+
+  # yod_presentation_travel_to_gether:
+  #   path: ../yod-presentation-travel-to-gether
+
+  # yod:
+  #   path: ../yod
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^5.0.0
   flutter_launcher_icons: ^0.14.4
+  build_runner: ^2.13.1
 
 flutter_launcher_icons:
   android: true
@@ -56,37 +71,6 @@ flutter_launcher_icons:
   adaptive_icon_foreground: "assets/icons/app_icon.png"
   remove_alpha_ios: true
 
-dependency_overrides:
-  yod_nak_ram_ui_kit:
-    # path: ../yod-nak-ram-ui-kit
-    git:
-      url: https://github.com/corp-yod/yod-nak-ram-ui-kit.git
-      ref: master
-
-  yod_presentation_fake_store:
-    # path: ../yod-presentation-fake-store
-    git:
-      url: https://github.com/corp-yod/yod-presentation-fake-store.git
-      ref: develop
-
-  yod_presentation_travel_to_gether:
-    git:
-      url: https://github.com/corp-yod/yod-presentation-travel-to-gether.git
-      ref: develop
-
-  yod_navigator:
-    git:
-      url: https://github.com/corp-yod/yod-navigator.git
-      ref: main
-
-  # yod_nak_ram_ui_kit:
-  #   path: ../yod-nak-ram-ui-kit
-
-  # yod_navigator:
-  #   path: ../yod-navigator
-
-  # yod_presentation_travel_to_gether:
-  #   path: ../yod-presentation-travel-to-gether
 
 flutter:
   uses-material-design: true
