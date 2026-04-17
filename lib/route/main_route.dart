@@ -4,7 +4,7 @@ import 'package:yod_nak_ram_app/presentation/ui/main_app.dart';
 import 'package:yod_nak_ram_app/route/main_route_name.dart';
 import 'package:yod_navigator/yod_navigator.dart';
 import 'package:yod_presentation_fake_store/yod_presentation_fake_store.dart';
-import 'package:yod_presentation_travel_to_gether/presentation/login/login_screen.dart';
+import 'package:yod_presentation_travel_to_gether/presentation/main_app_travel_together.dart';
 
 class YodRoutor extends YodRouterGenerator {
   @override
@@ -16,7 +16,7 @@ class YodRoutor extends YodRouterGenerator {
       RouteNameYod.splash,
       RouteNameYod.main,
       RouteNameYod.fakeStore,
-      RouteNameYod.travelLoginScreen,
+      RouteNameYod.travelMainApp,
     };
   }
 
@@ -36,8 +36,8 @@ class YodRoutor extends YodRouterGenerator {
         return _buildPageRoute(settings, const MainApp());
       case RouteNameYod.fakeStore:
         return _buildPageRoute(settings, MainAppFakeStore());
-      case RouteNameYod.travelLoginScreen:
-        return _buildPageRoute(settings, const LoginScreen());
+      case RouteNameYod.travelMainApp:
+        return _buildPageRoute(settings, const MainAppTravelToGether());
     }
     return null;
   }
