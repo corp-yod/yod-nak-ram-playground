@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:yod/yod.dart';
 import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
 import 'package:yod_nak_ram_app/injection.dart';
 import 'package:yod_nak_ram_app/route.dart';
+import 'package:yod_nak_ram_app/route/main_route.dart';
+import 'package:yod_nak_ram_app/route/main_route_name.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
-import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
-
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+import 'package:yod_navigator/yod_navigator.dart';
+import 'package:yod_presentation_travel_to_gether/route.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({super.key});
@@ -16,6 +18,8 @@ class AppWidget extends StatefulWidget {
 }
 
 class _AppWidgetState extends State<AppWidget> {
+  final GoRouter _goRouterConfig = MainRoute.goRouterConfig;
+
   @override
   void dispose() {
     super.dispose();
@@ -25,9 +29,10 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
     final themeManager = Yod.resolve<ThemeManager>();
+    print('#->>> AppWidget build');
     return YodBuilder(
       builder: () {
-        return MaterialApp(
+        return MaterialApp.router(
           scrollBehavior: CustomScrollBehavior(),
           // title: 'Flutter Demo',
           theme: RamThemeApp.lightTheme(),
@@ -36,23 +41,37 @@ class _AppWidgetState extends State<AppWidget> {
               ? ThemeMode.dark
               : ThemeMode.light,
           debugShowCheckedModeBanner: false,
-
-          // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-          initialRoute: '/splash',
-          navigatorKey: navigatorKey,
-
-          builder: (context, child) {
-            return child ?? const SizedBox.shrink();
-          },
-          onGenerateRoute: (settings) {
-            print('#->>> AppWidget onGenerateRoute ${settings.name}');
-            final mfafRoute = MainRoute().generateRoute(settings);
-            if (mfafRoute != null) return mfafRoute;
-
-            return MainRoute().generateRoute(settings);
-          },
-          navigatorObservers: [YodNavigator()],
+          routerConfig: _goRouterConfig,
+          // builder: (context, child) {
+          //   return child ?? const SizedBox.shrink();
+          // },
         );
+        // return MaterialApp(
+        //   scrollBehavior: CustomScrollBehavior(),
+        //   // title: 'Flutter Demo',
+        //   theme: RamThemeApp.lightTheme(),
+        //   darkTheme: RamThemeApp.darkTheme(),
+        //   themeMode: themeManager.isDarkMode.value
+        //       ? ThemeMode.dark
+        //       : ThemeMode.light,
+        //   debugShowCheckedModeBanner: false,
+
+        //   // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        //   initialRoute: '/splash',
+        //   navigatorKey: navigatorKey,
+
+        //   builder: (context, child) {
+        //     return child ?? const SizedBox.shrink();
+        //   },
+        //   onGenerateRoute: (settings) {
+        //     print('#->>> AppWidget onGenerateRoute ${settings.name}');
+        //     final mfafRoute = MainRoute().generateRoute(settings);
+        //     if (mfafRoute != null) return mfafRoute;
+
+        //     return MainRoute().generateRoute(settings);
+        //   },
+        //   navigatorObservers: [YodNavigator()],
+        // );
       },
     );
   }

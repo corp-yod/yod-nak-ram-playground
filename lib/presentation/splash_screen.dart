@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 1), () {
-      YodNavigator().pushNamedAndRemoveAll(context, '/main');
+      YodNavigator().go(context, '/main');
     });
   }
 

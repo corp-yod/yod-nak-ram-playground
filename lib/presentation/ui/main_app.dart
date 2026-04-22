@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:yod_nak_ram_app/app_widget.dart';
 import 'package:yod_nak_ram_app/core/overlay/assistive_touch_service.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/fake_store.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/menu_item.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/seek_golden.dart';
 import 'package:yod_nak_ram_app/presentation/ui/menu/travel_to_gether.dart';
+import 'package:yod_nak_ram_app/route.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 
 class MainApp extends StatefulWidget {
@@ -20,10 +20,10 @@ class _MainAppState extends State<MainApp> {
   @override
   void initState() {
     super.initState();
-    print('#->>> MainApp initState ${navigatorKey.currentWidget}');
+    print('#->>> MainApp initState ${rootNavigatorKey.currentWidget}');
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      AssistiveTouchService().init(navigatorKey);
+      AssistiveTouchService().init(rootNavigatorKey);
     });
   }
 

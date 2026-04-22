@@ -97,7 +97,7 @@ class _AssistiveTouchWidgetState extends State<AssistiveTouchWidget>
                               //     .pushNamedAndRemoveUntil('/', (r) => false);
                               // toggle();
 
-                              YodNavigator().pushNamedAndRemoveAll(
+                              YodNavigator().go(
                                 context,
                                 '/main',
                               );
