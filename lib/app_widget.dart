@@ -97,6 +97,8 @@ Future<void> initialApp() async {
 
   await injection();
   MainRoute().init();
+
+  // TODO: move to splash screen
   await YodData().init();
   await YodNetworkHttp().init(HttpInitialValue(channel: 'yod_nak_ram_app_v1'));
 }

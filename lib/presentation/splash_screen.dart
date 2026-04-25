@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yod_nak_ram_app/presentation/common/common_tabcontroller.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
+import 'package:yod_navigator/presentation/yod_navigator/app_tab_navigator.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,9 +15,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    initialCommonTabcontroller();
     Future.delayed(const Duration(seconds: 1), () {
       YodNavigator().go(context, '/main');
     });
+  }
+
+  Future<void> initialCommonTabcontroller() async {
+    CommonTabcontroller().initTabController();
+    // YodNavigator().registerTabController(
+    //   AppTabController(tabController: CommonTabcontroller().getTabcontroller),
+    //   controlerApp: CONTROLERAPP.MAINAPP,
+    // );
   }
 
   @override

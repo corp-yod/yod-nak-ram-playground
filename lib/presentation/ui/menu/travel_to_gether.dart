@@ -3,6 +3,7 @@ import 'package:yod_nak_ram_app/presentation/ui/menu/menu_item.dart';
 import 'package:yod_nak_ram_app/route/main_route_name.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
+import 'package:yod_presentation_travel_to_gether/route_name.dart';
 
 class TravelToGether extends MenuItem {
   @override
@@ -15,7 +16,7 @@ class TravelToGether extends MenuItem {
       height: 20,
       iconColor: Colors.orange,
       onTapMenu: () {
-        YodNavigator().pushNamed(context, RouteNameYod.travelMainApp);
+        YodNavigator().pushNamed(context, RouteNameTravel.mainAppTravelToGether);
       },
     );
   }
