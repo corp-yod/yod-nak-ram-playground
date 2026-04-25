@@ -3,7 +3,7 @@ import 'package:yod_nak_ram_app/presentation/ui/main_app.dart';
 import 'package:yod_nak_ram_app/route/main_route_name.dart';
 import 'package:yod_navigator/yod_navigator.dart';
 // import 'package:yod_presentation_fake_store/presentations/main_app_fake_store.dart';
-import 'package:yod_presentation_travel_to_gether/presentation/main_app_travel_together.dart';
+// import 'package:yod_presentation_travel_to_gether/presentation/main_app_travel_together.dart';
 
 class YodRoutor extends YodRouterModule {
   @override
@@ -24,10 +24,10 @@ class YodRoutor extends YodRouterModule {
       //   path: RouteNameYod.fakeStore,
       //   builder: (context, state) => MainAppFakeStore(),
       // ),
-      YodRouterBase(
-        path: RouteNameYod.travelMainApp,
-        builder: (context, state) => const MainAppTravelToGether(),
-      ),
+      // YodRouterBase(
+      //   path: RouteNameYod.travelMainApp,
+      //   builder: (context, state) => const MainAppTravelToGether(),
+      // ),
     ];
   }
 }

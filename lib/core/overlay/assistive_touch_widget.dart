@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yod_nak_ram_app/route/main_route_name.dart';
 import 'package:yod_nak_ram_ui_kit/yod_nak_ram_ui_kit.dart';
 import 'package:yod_navigator/presentation/yod_navigator/yod_navigator.dart';
 
@@ -97,9 +98,9 @@ class _AssistiveTouchWidgetState extends State<AssistiveTouchWidget>
                               //     .pushNamedAndRemoveUntil('/', (r) => false);
                               // toggle();
 
-                              YodNavigator().go(
+                              YodNavigator().popUntil(
                                 context,
-                                '/main',
+                                RouteNameYod.main,
                               );
                               toggle();
                             },
